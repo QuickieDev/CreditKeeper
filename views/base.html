@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit manager</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id='calendar'></div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src='http://fullcalendar.io/js/fullcalendar-2.2.3/lib/moment.min.js'></script>
+<script src='http://fullcalendar.io/js/fullcalendar-2.2.3/fullcalendar.min.js'></script>
+<script>
+    $(document).ready(function() {
+        // page is now ready, initialize the calendar...
+        // options and github  - http://fullcalendar.io/
+
+        $('#calendar').fullCalendar({
+            dayClick: function() {
+                alert('a day has been clicked!');
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

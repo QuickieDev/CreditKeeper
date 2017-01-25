@@ -1,0 +1,8 @@
+ujson
+bottle
+bottle-neck
+bottle-smart-filters
+psycopg2
+Jinja2
+pytest
+click
