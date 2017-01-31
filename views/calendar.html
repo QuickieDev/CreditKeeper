@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block extra_css %}
+<link rel='stylesheet' href='http://fullcalendar.io/js/fullcalendar-2.2.3/fullcalendar.css' />
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id='calendar'></div>
+        </div>
+    </div>
+
+</div>
+
+<edit-event></edit-event>
+
+<create-event></create-event>
+
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+<script src="/static/js/libs/riot.min.js"></script>
+<script src="/static/app.js"></script>
+<script src="/static/js/components/editEvent.js"></script>
+<script src="/static/js/components/createEvent.js"></script>
+
+<script src='/static/js/libs/moment.min.js'></script>
+<script src='/static/js/libs/fullcalendar.min.js'></script>
+<script src='/static/js/libs/locale-all.js'></script>
+
+<script>
+    $(document).ready(function() {
+        calendar.proxy = $('#calendar').fullCalendar({
+            locale: 'el',
+            events: '/api',
+            eventClick: function(event) {
+                calendar.trigger('editEvent', event);
+
+            },
+            dayClick: function(event) {
+                calendar.trigger('createEvent', event);
+            }
+        });
+
+    });
+
+    var edit = riot.mount('edit-event', {calendar: calendar});
+    var create = riot.mount('create-event', {calendar: calendar});
+</script>
+
+{% endblock %}

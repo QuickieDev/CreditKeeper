@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Credit manager</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/libs/bootstrap.min.css" rel="stylesheet">
+
+    {% block extra_css %}
+    {% endblock %}
+
+
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div id='calendar'></div>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Credit Manager</a>
         </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li {% if active == 'calendar' %}class="active"{% endif %}><a href="/">Calendar<span class="sr-only">(current)</span></a></li>
+                <li {% if active == 'client' %}class="active"{% endif %}><a href="/clients">Clients<span class="sr-only">(current)</span></a></li>
+
+                <li>
+                    <a href="/logout?page={{ current }}">logout<span class="sr-only "></span></a>
+                </li>
+            </ul>
+
+        </div>
+
+
     </div>
+</nav>
 
-</div>
+<hr>
+<br>
+<br>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+<h1></h1>
+
+{% block content %}
+
+{% endblock %}
 
 
-<script src='http://fullcalendar.io/js/fullcalendar-2.2.3/lib/moment.min.js'></script>
-<script src='http://fullcalendar.io/js/fullcalendar-2.2.3/fullcalendar.min.js'></script>
-<script>
-    $(document).ready(function() {
-        // page is now ready, initialize the calendar...
-        // options and github  - http://fullcalendar.io/
 
-        $('#calendar').fullCalendar({
-            dayClick: function() {
-                alert('a day has been clicked!');
-            }
-        });
+<script src="/static/js/libs/jquery.js"></script>
+<script src="/static/js/libs/bootstrap.min.js"></script>
 
-    });
+{% block extra_js %}
+{% endblock %}
 
-</script>
 </body>
 </html>

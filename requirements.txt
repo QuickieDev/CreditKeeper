@@ -1,8 +1,15 @@
 ujson
 bottle
 bottle-neck
+bottle-beaker
 bottle-smart-filters
+gevent
+SchemaFactory
+snaql
+lunatic
 psycopg2
 Jinja2
 pytest
 click
+cherrypy
+tornado
