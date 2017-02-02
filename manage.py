@@ -37,6 +37,14 @@ def build_js():
 
 
 @manager.command()
+def build_es6():
+    """Compile Riot.js components.
+    """
+    subprocess.Popen(["babel", "--no-babelrc", "--presets=es2015", "static/src/js", "--out-dir", "static/build/js"])
+
+
+
+@manager.command()
 def watch_js():
     """Compile Riot.js components.
     """
